@@ -76,12 +76,11 @@ def download(url, progress_callback):
                 progress_callback(progress)
 
     ydl_opts = {
-        'format': 'bestaudio/best',
+        'format': 'bestvideo[height<=720]+bestaudio/best[height<=720]',
         'progress_hooks': [hook],
         'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
+            'key': 'FFmpegVideoConvertor',
+            'preferedformat': 'mp4',
         }],
         'noplaylist': False,
         'outtmpl': f'{path}/output/%(title)s.%(ext)s',
