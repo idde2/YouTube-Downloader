@@ -78,6 +78,7 @@ def download(url, progress_callback):
     ydl_opts = {
         'format': 'bestvideo[height<=720]+bestaudio/best[height<=720]',
         'progress_hooks': [hook],
+        "ffmpeg_location": f"{path}/ffmpeg/ffmpeg.exe",
         'postprocessors': [{
             'key': 'FFmpegVideoConvertor',
             'preferedformat': 'mp4',
